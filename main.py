@@ -62,10 +62,10 @@ def captcha_solver():
         x = r.text
         get_id = x[3:]
         time.sleep(24)
-        response_request = (
+        token_response = (
             f"https://2captcha.com/res.php?key={api_key}&action=get&id={get_id}"
         )
-        captcha_answer = requests.get(response_request)
+        captcha_answer = requests.get(token_response)
         if captcha_answer.text[3:] == "CHA_NOT_READY":
             print("Captcha is not ready yet, please wait a few seconds")
             continue
